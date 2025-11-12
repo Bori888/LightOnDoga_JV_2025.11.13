@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author IlyésBorbála(SZF_202
- */
+
 public class LampaModell {
+    private int Sorszama;//neve
+    private String Szin;//hater szin le kek fel sarga 
+    private boolean Allapot;//fel 1  le 0
+    
     
 }
