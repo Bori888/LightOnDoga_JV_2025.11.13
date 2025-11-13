@@ -1,13 +1,13 @@
 package main;
 
-import vezerlo.LampaVezerlo;
-import nezet.GuiLampaNezet;
 import model.LampaModell;
+import nezet.GuiLampaNezet;
+import vezerlo.LampaVezerlo;
 
 public class LightOn {
     public static void main(String[] args) {
-        LampaModell modell = new LampaModell();
         GuiLampaNezet nezet = new GuiLampaNezet();
+        LampaModell modell = new LampaModell();
         new LampaVezerlo(nezet, modell);
         nezet.setVisible(true);
     }
