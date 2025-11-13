@@ -18,7 +18,6 @@ public class LampaVezerlo {
         this.model = model;
 
         view.addKilepesListener(e -> kilepes_Megerosit());
-
         view.addUjJatekListener(e -> ujJatek());
         view.addUjJatekMenuListener(e -> ujJatek());
         view.addFajlbaMentListener(e -> fajlbaMent());
@@ -32,6 +31,45 @@ public class LampaVezerlo {
         frissitView();
     }
 
+    public void ujJatek() {
+        model.ujJatek();
+        frissitView();
+        nezet.setMessage("Új játék indítva!");
+    }
+
+    public void lampaKattintas(int index) {
+        lampatValt(index);
+    }
+
+    public void lampatValtTeszt(int index) {
+        lampatValt(index);
+    }
+
+    private void lampatValt(int index) {
+        model.lampatValt(index);
+        frissitView();
+        if (jatekVege()) {
+            nezet.setMessage("Gratulálok! Minden lámpa lekapcsolva!");
+        }
+    }
+
+    private boolean jatekVege() {
+        for (boolean allapot : model.getAllapotok()) {
+            if (!allapot) return false;
+        }
+        return true;
+    }
+
+    private void frissitView() {
+        boolean[] allapotok = model.getAllapotok();
+        for (int i = 0; i < allapotok.length; i++) {
+            nezet.setLampColor(i, allapotok[i] ? Color.BLUE : Color.YELLOW);
+        }
+    }
+
+    public void frissit() {
+        frissitView();
+    }
 
     private void kilepes_Megerosit() {
         int valasz = JOptionPane.showConfirmDialog(
@@ -42,20 +80,6 @@ public class LampaVezerlo {
         );
         if (valasz == JOptionPane.YES_OPTION) {
             System.exit(0);
-        }
-    }
-
-    private void ujJatek() {
-        model.ujJatek();
-        frissitView();
-        nezet.setMessage("Új játék indítva!");
-    }
-
-    private void lampatValt(int index) {
-        model.lampatValt(index);
-        frissitView();
-        if (jatekVege()) {
-            nezet.setMessage("Gratulálok! Minden lámpa lekapcsolva!");
         }
     }
 
@@ -88,21 +112,6 @@ public class LampaVezerlo {
             }
         } catch (IOException e) {
             nezet.setMessage("Betöltés sikertelen!");
-        }
-    }
-
-
-    private boolean jatekVege() {
-        for (boolean allapot : model.getAllapotok()) {
-            if (!allapot) return false;
-        }
-        return true;
-    }
-
-    private void frissitView() {
-        boolean[] allapotok = model.getAllapotok();
-        for (int i = 0; i < allapotok.length; i++) {
-            nezet.setLampColor(i, allapotok[i] ? Color.BLUE : Color.YELLOW);
         }
     }
 }

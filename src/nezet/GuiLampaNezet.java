@@ -31,6 +31,12 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         });
     }
 
+    public void frissit(boolean[] allapotok) {
+        for (int i = 0; i < allapotok.length; i++) {
+            setLampColor(i, allapotok[i] ? java.awt.Color.BLUE : java.awt.Color.YELLOW);
+        }
+    }
+
     private void kilepes_Megerosit() {
         int valasz = JOptionPane.showConfirmDialog(
                 this,
@@ -103,6 +109,21 @@ public class GuiLampaNezet extends javax.swing.JFrame {
 
     public void addBetoltFajlbolListener(ActionListener listener) {
         mnuiBetoltFajlbol.addActionListener(listener);
+    }
+
+    public void triggerUjJatek() {
+        if (mnuiUjJatek != null) {
+            mnuiUjJatek.doClick();
+        } else if (btnUjJatek != null) {
+            btnUjJatek.doClick();
+        }
+    }
+
+    public void triggerLampClick(int index) {
+        JButton b = getLampButton(index);
+        if (b != null) {
+            b.doClick();
+        }
     }
 
     /**
@@ -380,4 +401,5 @@ public class GuiLampaNezet extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLampak;
     private javax.swing.JTextField txtfKiiras;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -12,7 +12,7 @@ public class LampaModell {
 
     public void ujJatek() {
         for (int i = 0; i < 9; i++) {
-            lampak[i] = rnd.nextBoolean(); // véletlenszerű állapot
+            lampak[i] = rnd.nextBoolean(); 
         }
     }
 
