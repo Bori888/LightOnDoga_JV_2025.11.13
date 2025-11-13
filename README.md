@@ -11,17 +11,18 @@ A játék **MVC (Model-View-Controller) struktúrában** készült:
 - **Controller**: összeköti a modellt és a nézetet, kezeli az eseményeket és frissíti a nézetet  
 
 ---
+Fájlstruktúra:
 
-## Fájlstruktúra
 src/
 ├─ model/
-│ └─ LampaModell.java
+│  └─ LampaModell.java
 ├─ nezet/
-│ └─ GuiLampaNezet.java
+│  └─ GuiLampaNezet.java
 ├─ vezerlo/
-│ └─ LampaVezerlo.java
+│  └─ LampaVezerlo.java
 └─ test/
-└─ LampaVezerloTest.java
+   └─ LampaVezerloTest.java
+
 
 ---
 
