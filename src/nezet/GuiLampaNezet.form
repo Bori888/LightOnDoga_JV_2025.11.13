@@ -14,6 +14,11 @@
                 <Property name="text" type="java.lang.String" value="F&#xe1;jlba ment"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuiBetoltFajlbol">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bel&#xf6;lt fajlb&#xf3;l"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuiUjJatek">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xda;j J&#xe1;t&#xe9;k"/>

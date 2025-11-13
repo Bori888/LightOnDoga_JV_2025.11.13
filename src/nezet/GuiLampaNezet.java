@@ -7,6 +7,8 @@ package nezet;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,40 +20,78 @@ public class GuiLampaNezet extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public GuiLampaNezet() {
-        initComponents();
-    }
-    public void setLampColor(int index, Color color) {
-        getLampButton(index).setBackground(color);
+    initComponents();
+    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    this.addWindowListener(new java.awt.event.WindowAdapter() {
+        @Override
+        public void windowClosing(java.awt.event.WindowEvent evt) {
+            kilepes_Megerosit();
+        }
+    });
+    mnuiKilepes.addActionListener(e -> kilepes_Megerosit());
+}
+
+
+    private void kilepes_Megerosit() {
+        int valasz = JOptionPane.showConfirmDialog(
+                this,
+                "Biztos ki szeretnél lépni?",
+                "Megerősítés",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (valasz == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
-    public void setMessage(String msg) {
-        txtfKiiras.setText(msg);
+    public void addKilepesListener(ActionListener listener) {
+        mnuiKilepes.addActionListener(listener);
     }
 
     public void addLampButtonListener(int index, ActionListener listener) {
         getLampButton(index).addActionListener(listener);
     }
 
+    private JButton getLampButton(int index) {
+        switch (index) {
+            case 0:
+                return btnLampa1;
+            case 1:
+                return btnLampa2;
+            case 2:
+                return btnLampa3;
+            case 3:
+                return btnLampa4;
+            case 4:
+                return btnLampa5;
+            case 5:
+                return btnLampa6;
+            case 6:
+                return btnLampa7;
+            case 7:
+                return btnLampa8;
+            case 8:
+                return btnLampa9;
+            default:
+                return null;
+        }
+    }
+
+    public void setMessage(String msg) {
+        txtfKiiras.setText(msg);
+    }
+
     public void addUjJatekListener(ActionListener listener) {
         btnUjJatek.addActionListener(listener);
     }
 
-    public void addKilepesListener(ActionListener listener) {
-        mnuiKilepes.addActionListener(listener);
+    public void addFajlbaMentListener(ActionListener listener) {
+        mnuiFajlbaMent.addActionListener(listener);
     }
-    private JButton getLampButton(int index) {
-        switch(index) {
-            case 0: return btnLampa1;
-            case 1: return btnLampa2;
-            case 2: return btnLampa3;
-            case 3: return btnLampa4;
-            case 4: return btnLampa5;
-            case 5: return btnLampa6;
-            case 6: return btnLampa7;
-            case 7: return btnLampa8;
-            case 8: return btnLampa9;
-            default: return null;
-        }
+
+    public void addBetoltFajlbolListener(ActionListener listener) {
+        mnuiBetoltFajlbol.addActionListener(listener);
     }
 
     /**
@@ -79,6 +119,7 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         mnbMenu = new javax.swing.JMenuBar();
         mnuFile = new javax.swing.JMenu();
         mnuiFajlbaMent = new javax.swing.JMenuItem();
+        mnuiBetoltFajlbol = new javax.swing.JMenuItem();
         mnuiUjJatek = new javax.swing.JMenuItem();
         mnuiKilepes = new javax.swing.JMenuItem();
 
@@ -213,6 +254,9 @@ public class GuiLampaNezet extends javax.swing.JFrame {
 
         mnuiFajlbaMent.setText("Fájlba ment");
         mnuFile.add(mnuiFajlbaMent);
+
+        mnuiBetoltFajlbol.setText("Belölt fajlból");
+        mnuFile.add(mnuiBetoltFajlbol);
 
         mnuiUjJatek.setText("Új Játék");
         mnuFile.add(mnuiUjJatek);
@@ -353,6 +397,7 @@ public class GuiLampaNezet extends javax.swing.JFrame {
     private javax.swing.JLabel lblCim;
     private javax.swing.JMenuBar mnbMenu;
     private javax.swing.JMenu mnuFile;
+    private javax.swing.JMenuItem mnuiBetoltFajlbol;
     private javax.swing.JMenuItem mnuiFajlbaMent;
     private javax.swing.JMenuItem mnuiKilepes;
     private javax.swing.JMenuItem mnuiUjJatek;
