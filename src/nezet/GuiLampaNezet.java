@@ -16,19 +16,19 @@ import javax.swing.JOptionPane;
  */
 public class GuiLampaNezet extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
-    public GuiLampaNezet() {
+    private ActionListener kilepesListener;
+
+   public GuiLampaNezet() {
     initComponents();
     this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     this.addWindowListener(new java.awt.event.WindowAdapter() {
         @Override
         public void windowClosing(java.awt.event.WindowEvent evt) {
-            kilepes_Megerosit();
+            if (kilepesListener != null) {
+                kilepesListener.actionPerformed(null);
+            }
         }
     });
-    mnuiKilepes.addActionListener(e -> kilepes_Megerosit());
 }
 
 
@@ -46,8 +46,11 @@ public class GuiLampaNezet extends javax.swing.JFrame {
     }
 
     public void addKilepesListener(ActionListener listener) {
+        this.kilepesListener = listener;
         mnuiKilepes.addActionListener(listener);
     }
+
+   
 
     public void addLampButtonListener(int index, ActionListener listener) {
         getLampButton(index).addActionListener(listener);
@@ -347,7 +350,6 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLampa9ActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLampa1;
