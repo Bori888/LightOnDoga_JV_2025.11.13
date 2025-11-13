@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package main;
 
-/**
- *
- * @author IlyésBorbála(SZF_202
- */
-public class LightOn {
+import vezerlo.LampaVezerlo;
+import nezet.GuiLampaNezet;
+import model.LampaModell;
 
-    /**
-     * @param args the command line arguments
-     */
+public class LightOn {
     public static void main(String[] args) {
-        // TODO code application logic here
+        LampaModell modell = new LampaModell();
+        GuiLampaNezet nezet = new GuiLampaNezet();
+        new LampaVezerlo(nezet, modell);
+        nezet.setVisible(true);
     }
-    
 }
