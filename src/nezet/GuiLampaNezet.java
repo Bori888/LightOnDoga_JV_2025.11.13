@@ -41,7 +41,7 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         lblCim = new javax.swing.JLabel();
         mnbMenu = new javax.swing.JMenuBar();
         mnuFile = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuiFajlbaMent = new javax.swing.JMenuItem();
         mnuiUjJatek = new javax.swing.JMenuItem();
         mnuiKilepes = new javax.swing.JMenuItem();
 
@@ -174,8 +174,8 @@ public class GuiLampaNezet extends javax.swing.JFrame {
 
         mnuFile.setText("File");
 
-        jMenuItem1.setText("Fájlba ment");
-        mnuFile.add(jMenuItem1);
+        mnuiFajlbaMent.setText("Fájlba ment");
+        mnuFile.add(mnuiFajlbaMent);
 
         mnuiUjJatek.setText("Új Játék");
         mnuFile.add(mnuiUjJatek);
@@ -313,10 +313,10 @@ public class GuiLampaNezet extends javax.swing.JFrame {
     private javax.swing.JButton btnLampa8;
     private javax.swing.JButton btnLampa9;
     private javax.swing.JButton btnUjJatek;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblCim;
     private javax.swing.JMenuBar mnbMenu;
     private javax.swing.JMenu mnuFile;
+    private javax.swing.JMenuItem mnuiFajlbaMent;
     private javax.swing.JMenuItem mnuiKilepes;
     private javax.swing.JMenuItem mnuiUjJatek;
     private javax.swing.JPanel pnlLampak;
