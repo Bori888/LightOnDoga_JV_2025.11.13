@@ -9,6 +9,11 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="F&#xe1;jlba ment"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuiUjJatek">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xda;j J&#xe1;t&#xe9;k"/>
