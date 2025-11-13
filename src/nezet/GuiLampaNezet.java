@@ -18,19 +18,18 @@ public class GuiLampaNezet extends javax.swing.JFrame {
 
     private ActionListener kilepesListener;
 
-   public GuiLampaNezet() {
-    initComponents();
-    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-    this.addWindowListener(new java.awt.event.WindowAdapter() {
-        @Override
-        public void windowClosing(java.awt.event.WindowEvent evt) {
-            if (kilepesListener != null) {
-                kilepesListener.actionPerformed(null);
+    public GuiLampaNezet() {
+        initComponents();
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                if (kilepesListener != null) {
+                    kilepesListener.actionPerformed(null);
+                }
             }
-        }
-    });
-}
-
+        });
+    }
 
     private void kilepes_Megerosit() {
         int valasz = JOptionPane.showConfirmDialog(
@@ -49,8 +48,6 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         this.kilepesListener = listener;
         mnuiKilepes.addActionListener(listener);
     }
-
-   
 
     public void addLampButtonListener(int index, ActionListener listener) {
         getLampButton(index).addActionListener(listener);
@@ -83,6 +80,13 @@ public class GuiLampaNezet extends javax.swing.JFrame {
 
     public void setMessage(String msg) {
         txtfKiiras.setText(msg);
+    }
+
+    public void setLampColor(int index, Color color) {
+        JButton lamp = getLampButton(index);
+        if (lamp != null) {
+            lamp.setBackground(color);
+        }
     }
 
     public void addUjJatekListener(ActionListener listener) {
