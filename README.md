@@ -12,22 +12,8 @@ A játék **MVC (Model-View-Controller) struktúrában** készült:
 
 ---
 # Fájlstruktúra
-'''
+<img width="233" height="263" alt="image" src="https://github.com/user-attachments/assets/2b6f3399-958b-4f8c-a9f5-da5db5006f45" />
 
-src/
-├─ model/
-│   └─ LampaModell.java
-├─ nezet/
-│   └─ GuiLampaNezet.java
-├─ vezerlo/
-│   └─ LampaVezerlo.java
-├─ main/
-│   └─ LightOn.java
-└─ test/
-    ├─ LampaVezerloTest.java
-    ├─ GuiLampaNezetTest.java
-    └─ LampaModellTest.java
-'''
 ---
 
 ## 1. Modell (`LampaModell.java`)
