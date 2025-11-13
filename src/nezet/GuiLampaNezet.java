@@ -4,6 +4,10 @@
  */
 package nezet;
 
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author IlyésBorbála(SZF_202
@@ -15,6 +19,39 @@ public class GuiLampaNezet extends javax.swing.JFrame {
      */
     public GuiLampaNezet() {
         initComponents();
+    }
+    public void setLampColor(int index, Color color) {
+        getLampButton(index).setBackground(color);
+    }
+
+    public void setMessage(String msg) {
+        txtfKiiras.setText(msg);
+    }
+
+    public void addLampButtonListener(int index, ActionListener listener) {
+        getLampButton(index).addActionListener(listener);
+    }
+
+    public void addUjJatekListener(ActionListener listener) {
+        btnUjJatek.addActionListener(listener);
+    }
+
+    public void addKilepesListener(ActionListener listener) {
+        mnuiKilepes.addActionListener(listener);
+    }
+    private JButton getLampButton(int index) {
+        switch(index) {
+            case 0: return btnLampa1;
+            case 1: return btnLampa2;
+            case 2: return btnLampa3;
+            case 3: return btnLampa4;
+            case 4: return btnLampa5;
+            case 5: return btnLampa6;
+            case 6: return btnLampa7;
+            case 7: return btnLampa8;
+            case 8: return btnLampa9;
+            default: return null;
+        }
     }
 
     /**
