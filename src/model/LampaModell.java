@@ -1,7 +1,10 @@
 package model;
 
+import java.util.Random;
+
 public class LampaModell {
     private boolean[] lampak = new boolean[9]; // true = kék (lekapcsolt), false = sárga (felkapcsolt)
+    private Random rnd = new Random();
 
     public LampaModell() {
         ujJatek();
@@ -9,7 +12,7 @@ public class LampaModell {
 
     public void ujJatek() {
         for (int i = 0; i < 9; i++) {
-            lampak[i] = false; 
+            lampak[i] = rnd.nextBoolean(); // véletlenszerű állapot
         }
     }
 

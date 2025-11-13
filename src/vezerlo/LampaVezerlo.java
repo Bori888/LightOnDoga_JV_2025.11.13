@@ -10,15 +10,17 @@ import nezet.GuiLampaNezet;
 
 public class LampaVezerlo {
 
-    private GuiLampaNezet view;
+    private GuiLampaNezet nezet;
     private LampaModell model;
 
     public LampaVezerlo(GuiLampaNezet view, LampaModell model) {
-        this.view = view;
+        this.nezet = view;
         this.model = model;
 
         view.addKilepesListener(e -> kilepes_Megerosit());
+
         view.addUjJatekListener(e -> ujJatek());
+        view.addUjJatekMenuListener(e -> ujJatek());
         view.addFajlbaMentListener(e -> fajlbaMent());
         view.addBetoltFajlbolListener(e -> fajlbolBetolt());
 
@@ -30,9 +32,10 @@ public class LampaVezerlo {
         frissitView();
     }
 
+
     private void kilepes_Megerosit() {
         int valasz = JOptionPane.showConfirmDialog(
-                view,
+                nezet,
                 "Biztos ki szeretnél lépni?",
                 "Megerősítés",
                 JOptionPane.YES_NO_OPTION
@@ -45,41 +48,27 @@ public class LampaVezerlo {
     private void ujJatek() {
         model.ujJatek();
         frissitView();
-        view.setMessage("Új játék indítva!");
+        nezet.setMessage("Új játék indítva!");
     }
 
     private void lampatValt(int index) {
         model.lampatValt(index);
         frissitView();
         if (jatekVege()) {
-            view.setMessage("Gratulálok! Minden lámpa lekapcsolva!");
-        }
-    }
-
-    private boolean jatekVege() {
-        for (boolean allapot : model.getAllapotok()) {
-            if (!allapot) return false;
-        }
-        return true;
-    }
-
-    private void frissitView() {
-        boolean[] allapotok = model.getAllapotok();
-        for (int i = 0; i < allapotok.length; i++) {
-            view.setLampColor(i, allapotok[i] ? Color.BLUE : Color.YELLOW);
+            nezet.setMessage("Gratulálok! Minden lámpa lekapcsolva!");
         }
     }
 
     private void fajlbaMent() {
-        String tartalom = "";
+        StringBuilder tartalom = new StringBuilder();
         for (boolean allapot : model.getAllapotok()) {
-            tartalom += allapot ? "1" : "0";
+            tartalom.append(allapot ? "1" : "0");
         }
         try {
-            Files.writeString(Path.of("lampaAllas.txt"), tartalom);
-            view.setMessage("Játék mentve!");
+            Files.writeString(Path.of("lampaAllas.txt"), tartalom.toString());
+            nezet.setMessage("Játék mentve!");
         } catch (IOException e) {
-            view.setMessage("Mentés sikertelen!");
+            nezet.setMessage("Mentés sikertelen!");
         }
     }
 
@@ -93,12 +82,27 @@ public class LampaVezerlo {
                 }
                 model.setAllapotok(ujAllapot);
                 frissitView();
-                view.setMessage("Játék betöltve!");
+                nezet.setMessage("Játék betöltve!");
             } else {
-                view.setMessage("Hibás fájlformátum!");
+                nezet.setMessage("Hibás fájlformátum!");
             }
         } catch (IOException e) {
-            view.setMessage("Betöltés sikertelen!");
+            nezet.setMessage("Betöltés sikertelen!");
+        }
+    }
+
+
+    private boolean jatekVege() {
+        for (boolean allapot : model.getAllapotok()) {
+            if (!allapot) return false;
+        }
+        return true;
+    }
+
+    private void frissitView() {
+        boolean[] allapotok = model.getAllapotok();
+        for (int i = 0; i < allapotok.length; i++) {
+            nezet.setLampColor(i, allapotok[i] ? Color.BLUE : Color.YELLOW);
         }
     }
 }

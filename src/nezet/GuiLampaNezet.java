@@ -93,6 +93,10 @@ public class GuiLampaNezet extends javax.swing.JFrame {
         btnUjJatek.addActionListener(listener);
     }
 
+    public void addUjJatekMenuListener(ActionListener listener) {
+        mnuiUjJatek.addActionListener(listener);
+    }
+
     public void addFajlbaMentListener(ActionListener listener) {
         mnuiFajlbaMent.addActionListener(listener);
     }
